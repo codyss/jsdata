@@ -2,6 +2,28 @@
 
 app.factory('Post', function(DS) {
 
+
+  var Post = DS.defineResource({
+
+     name: 'posts',
+     relations: {
+      belongsTo: {
+        users: {
+          localKey: 'author',
+          localField: '_author'
+        }
+      }
+     },
+     methods: {
+      go: function () {
+        $state.go('post', {
+          postId: this._id,
+          authorId: this.author
+        })
+      }
+     }
+    });
+  return Post
 	/*
 
 		TODOS: 
@@ -14,6 +36,6 @@ app.factory('Post', function(DS) {
 
 	*/
 
-});
+}).run(function (Post) {})
 
 
