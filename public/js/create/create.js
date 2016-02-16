@@ -27,8 +27,7 @@ app.controller('CreateCtrl', function($scope, Post, $state, $stateParams) {
 	$scope.newPost = {};
 	$scope.newPost.author = userID;
 	$scope.createNewPost = function () {
-		Post.create($scope.newPost)
-		$state.go('main');
+		Post.create($scope.newPost).then(post => $state.go('main'))
 	}
 	/*
 

@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Post', function(DS) {
+app.factory('Post', function(DS, $state) {
 
 
   var Post = DS.defineResource({

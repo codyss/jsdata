@@ -4,14 +4,18 @@
 
 	<div class="postTitle">
     <!-- display the post title -->
-		<h2></h2>
+		<h2>{{post.title}}</h2>
     <!-- add functionality that makes this Edit button work -->
-		<button type="button" class="btn btn-primary">Edit</button>
+		<button type="button" ng-click="update()" class="btn btn-primary">Update</button>
 	</div>
 
   <!-- display the user's name by accessing the user object embedded in the post -->
+  <h2>{{post._author.username}}</h2>
 
-  <!-- display the post body -->
+  <div class="form-group">
+    <label>Body</label>
+    <textarea style="height: 300px" type="text" class="form-control" placeholder="What are you trying to say?" ng-model="post.body" required /></textarea>
+  </div>
 	<p></p>
 
 	<a ui-sref="main">Back to All Posts</a>

@@ -29,6 +29,13 @@ module.exports = {
     })
     .then(null, next)
   }, 
+  update: function(req, res, next){
+    Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(function(article) {
+      res.json(article);
+    })
+    .then(null, next)
+  }, 
   destroy: function(req, res, next){
     Post.remove({_id: req.params.id})
     .then(function() {
